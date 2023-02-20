@@ -1,7 +1,7 @@
 package com.setianjay.springboot.learnspringbootjpaandhibernate.course;
 
+import com.setianjay.springboot.learnspringbootjpaandhibernate.course.springjpa.CourseSpringJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,15 +10,26 @@ import java.util.List;
 @RestController
 public class CourseController {
 
-    private final CourseRepository courseRepository;
+    // private final CourseRepository courseRepository;
+    private final CourseSpringJpaRepository courseRepository;
 
     @Autowired
-    public CourseController(@Qualifier(value = "jpa") CourseRepository courseRepository) {
+    public CourseController(CourseSpringJpaRepository courseRepository) {
         this.courseRepository = courseRepository;
     }
 
     @RequestMapping("/courses")
     public List<Course> retrieveCourses(){
-        return courseRepository.findAllCourse();
+        return courseRepository.findAll();
+    }
+
+    @RequestMapping("/coursesByAuthor")
+    public List<Course> retrieveCourseByAuthor(){
+        return courseRepository.findByAuthor("Hari Setiaji");
+    }
+
+    @RequestMapping("/authors")
+    public List<String> retrieveAuthors(){
+        return courseRepository.findAllAuthor();
     }
 }
