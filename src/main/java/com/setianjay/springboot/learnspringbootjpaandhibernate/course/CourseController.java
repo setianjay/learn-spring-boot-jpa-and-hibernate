@@ -13,7 +13,7 @@ public class CourseController {
     private final CourseRepository courseRepository;
 
     @Autowired
-    public CourseController(@Qualifier(value = "spring-jdbc") CourseRepository courseRepository) {
+    public CourseController(@Qualifier(value = "jpa") CourseRepository courseRepository) {
         this.courseRepository = courseRepository;
     }
 

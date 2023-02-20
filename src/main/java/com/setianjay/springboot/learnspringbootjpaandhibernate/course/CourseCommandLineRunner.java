@@ -14,7 +14,7 @@ public class CourseCommandLineRunner implements CommandLineRunner {
     private final CourseRepository repository;
 
     @Autowired
-    public CourseCommandLineRunner(@Qualifier(value = "spring-jdbc") CourseRepository repository){
+    public CourseCommandLineRunner(@Qualifier(value = "jpa") CourseRepository repository){
         this.repository = repository;
     }
 

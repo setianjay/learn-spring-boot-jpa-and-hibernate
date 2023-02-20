@@ -1,6 +1,11 @@
 package com.setianjay.springboot.learnspringbootjpaandhibernate.course;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity(name = "course")
 public class Course {
+    @Id
     private int id;
     private String title;
     private String author;
