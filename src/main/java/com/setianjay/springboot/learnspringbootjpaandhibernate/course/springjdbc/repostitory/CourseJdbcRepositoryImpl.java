@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * CourseRepositoryImpl using Spring Jdbc to interact with database.
+ * CourseJdbcRepositoryImpl using Spring Jdbc to interact with database.
  * Spring Jdbc: write less java code but write a lot more sql statements.
  * */
 @Repository

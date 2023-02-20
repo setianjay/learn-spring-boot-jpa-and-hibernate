@@ -10,6 +10,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * CourseJpaRepositoryImpl using Jakarta Persistence API also known as JPA to interact with database.
+ * JPA: not worries about queries just map entities to tables.
+ * */
 @Repository
 @Transactional
 @Qualifier(value = "jpa")
