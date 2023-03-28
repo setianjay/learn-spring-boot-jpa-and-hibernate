@@ -16,12 +16,12 @@ public interface CourseSpringJpaRepository extends JpaRepository<Course, Long> {
     * Create custom functionality. If you use this way, name of function after a sentence 'By' must be same with field
     * on table. Queries are handle by Spring.
     * */
-    List<Course> findByAuthor(String author);
+    List<Course> findAllByAuthor(String author);
 
     /*
     * Create custom functionality. If you use this way, You are free to give any function name because you custom the
     * queries.
     * */
-    @Query(value = "SELECT DISTINCT author FROM course")
-    List<String> findAllAuthor();
+    @Query("SELECT DISTINCT c.author FROM Course c")
+    List<String> getAllAuthors();
 }

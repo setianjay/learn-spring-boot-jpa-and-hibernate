@@ -25,11 +25,11 @@ public class CourseController {
 
     @RequestMapping("/coursesByAuthor")
     public List<Course> retrieveCourseByAuthor(){
-        return courseRepository.findByAuthor("Hari Setiaji");
+        return courseRepository.findAllByAuthor("Hari Setiaji");
     }
 
     @RequestMapping("/authors")
     public List<String> retrieveAuthors(){
-        return courseRepository.findAllAuthor();
+        return courseRepository.getAllAuthors();
     }
 }
