@@ -5,19 +5,28 @@ import jakarta.persistence.*;
 import lombok.*;
 
 /**
- * CREATE TABLE tbl_rector (
+ * CREATE TABLE rector (
  * rector_id INT AUTO_INCREMENT,
  * name VARCHAR(50) NOT NULL,
  * title VARCHAR(50) NOT NULL,
  * telephone CHAR(13) NOT NULL,
  * email VARCHAR(50) NOT NULL,
  * address VARCHAR(255),
- * city VARCHAR(30),
- * district VARCHAR (30),
  * postal_code CHAR(4)
  * */
 
 @Entity
+@Table(name = "rector",
+        /*
+        * membuat field atau column yang ingin dijadikan sebagai unique key dan memberikan nama constraint
+        * kepada unique key tersebut.
+        * */
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "unique_rector_email",
+                        columnNames = "email")
+        }
+)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,14 +35,8 @@ import lombok.*;
 public class Rector {
 
     @Id
-    @SequenceGenerator(
-            name = "rector_sequence",
-            sequenceName = "rector_sequence",
-            allocationSize = 1
-    )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "rector_sequence"
+            strategy = GenerationType.IDENTITY
     )
     private Long rectorId;
 
