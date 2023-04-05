@@ -58,12 +58,15 @@ public class University {
      * ada di table university, kecuali kita menyatakan bahwa kita ingin membawanya, caranya ada di class testing.
      * optional         = bila false maka kita wajib memasukan data, jika true maka kita tidak wajib memasukkan
      * data (null)
-     * */
+     */
     @OneToOne(
             targetEntity = Rector.class,
+            cascade = CascadeType.ALL,
 //            fetch = FetchType.LAZY,
-            optional = false
+            optional= false
     )
     @JoinColumn(name = "rector_id", referencedColumnName = "rectorId", foreignKey = @ForeignKey(name = "FK_university_rector"))
     private Rector rector;
+
+
 }

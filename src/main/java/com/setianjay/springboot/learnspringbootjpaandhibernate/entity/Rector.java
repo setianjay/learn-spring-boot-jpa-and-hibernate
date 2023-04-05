@@ -30,6 +30,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(exclude = "rectorId")
 @ToString
 @Builder
 public class Rector {
